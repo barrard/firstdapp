@@ -2,7 +2,13 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" type="text/css" href="css/css.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <meta charset="UTF-8">
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
   <title>Seashell Sail</title>
 </head>
 <body>
@@ -47,7 +53,8 @@
     </ul>
 
   </section>
-  <h1>Seashell Sail</h1>
+  <h1>Seashell Sail<img id="loader" src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif"></h1>
+  <span id="insTrans"></span>
 
   <p>
     your current account is:  <span id="ethAccountID"></span>
@@ -56,22 +63,30 @@
 
 
 <div>
-  <h3>Token</h3>
-    Address <span id="tokenAddress"></span>
+  <h3>Token <span id="token_symbol"></span><span class="adresses" id="tokenAddress"></span></h3>
+     
 
-  <h3>Democracy</h3>
-    Address <span id="democracyAddress"></span>
+  <h3>Democracy<span class="adresses" id="democracyAddress"></span></h3>
+     
 
 
-  <h3>CrowdSale</h3>
-    Address <span id="crowdsaleAddress"></span>
+  <h3>CrowdSale<span class="adresses" id="crowdsaleAddress"></span></h3>
+
+    <div id="sendEtherDiv">
+      <button id='sendEtherBtn'>Send Ether</button>
+      <input
+        id="sendEtherInLethalAmount"
+        type="number"
+        name="etherValue"
+        value=''
+        placeholder='Ether to send'/>
+      <div id='EtherToWeiView'>Value in Wai <span class="adresses" id="WeiView"></span></div>
+    </div>
+    
 
 </div>
   
-  <script
-    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
-    crossorigin="anonymous"></script>
+ 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/5.0.0/bignumber.min.js"></script>
   <script src="js/web3.min.js"></script>
   <script src="js/web3interaction.js"></script>

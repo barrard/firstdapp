@@ -50,3 +50,28 @@ body{
   border: 1px solid goldenrod;
   background: white;
 }
+
+#loader {
+  position: absolute;
+    width: 100px;
+    display:none;
+}
+
+.adresses:before{
+  content: '-';
+  /*position: */
+}
+.adresses{
+  user-select: all;
+  font-size: 9px;
+  font-weight: normal;
+}
+
+#sendEtherDiv{
+  position: relative;
+}
+
+#EtherToWeiView{
+  top: 1.5em;
+  position: absolute;
+}
