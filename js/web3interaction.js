@@ -201,18 +201,18 @@ initLatestBlockTimer()
 function initLatestBlockTimer(){
   newestBlockTimer = setInterval(function(){
     web3.eth.getBlockNumber(function(e, r){
-      console.log(e)
-      console.log(r)
+      // console.log(e)
+      // console.log(r)
       if(r==$('#currentBlockID').html()){
-        console.log(r)
-        console.log($('#timeSinceLastBlock').html())
-        console.log('its the same, increment the clock')
+        // console.log(r)
+        // console.log($('#timeSinceLastBlock').html())
+        // console.log('its the same, increment the clock')
         $('#timeSinceLastBlock').html(blockTimerStart);
         blockTimerStart++
       }else{
-        console.log(r)
-        console.log($('#timeSinceLastBlock').html())
-        console.log('its new, update latest block and reset the clock')
+        // console.log(r)
+        // console.log($('#timeSinceLastBlock').html())
+        // console.log('its new, update latest block and reset the clock')
         $('#currentBlockID').html(r)
         clearInterval(newestBlockTimer)
         blockTimerStart=0
