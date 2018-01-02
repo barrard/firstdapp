@@ -197,7 +197,7 @@ var newestBlockTimer;
 var blockTimerStart=0;
 var currentBlockID;
 $('#timeSinceLastBlock').html(blockTimerStart);
-// initLatestBlockTimer()
+initLatestBlockTimer()
 function initLatestBlockTimer(){
   newestBlockTimer = setInterval(function(){
     web3.eth.getBlockNumber(function(e, r){
