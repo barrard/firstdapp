@@ -91,7 +91,7 @@ crowdSailFundTransferEvent.watch(function(error, result){
   if(error){
     console.log(error)
   }else if(result){
-    // console.log(result)
+    console.log(result)
     var crowdSaleAddress = result.address;
     var backer = result.args.backer
     var isContribution = result.args.isContribution
