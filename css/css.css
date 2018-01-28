@@ -75,3 +75,50 @@ body{
   top: 1.5em;
   position: absolute;
 }
+
+.transactionListing{
+  border: 1px solid black;
+  padding: 5px 3px 5px 3px;
+  margin:5px 3px 5px 3px;
+
+}
+
+.transactionListing .address  {
+  color: blueviolet;
+}
+
+.transactionListing .to  {
+  color: brown;
+}
+
+.transactionListing .from  {
+  color: burlywood;
+}
+
+.transactionListing .value  {
+  color: indianred;
+}
+
+.transactionListing .BlockHash  {
+  color: indigo;
+}
+
+.transactionListing .BlockNumber  {
+  color: darkgoldenrod;
+}
+
+.transactionListing .logIndex  {
+  color: cadetblue;
+}
+.transactionListing .logIndex  {
+  color: chocolate;
+}
+.transactionListing .transactionIndex  {
+  color: coral;
+}
+.transactionListing .removed  {
+  color: cornflowerblue;
+}
+.transactionListing .transactionHash  {
+  color: crimson;
+}

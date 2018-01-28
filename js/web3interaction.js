@@ -33,7 +33,8 @@ var SeaShellToken = SeaShellTokenContract.at('0x4ffB0eD1A85Ef0cae1DcA8be76D88fcE
 
 var DemocraseaContract = web3.eth.contract([ { "constant": true, "inputs": [ { "name": "", "type": "uint256" } ], "name": "proposals", "outputs": [ { "name": "recipient", "type": "address" }, { "name": "amount", "type": "uint256" }, { "name": "description", "type": "string" }, { "name": "votingDeadline", "type": "uint256" }, { "name": "executed", "type": "bool" }, { "name": "proposalPassed", "type": "bool" }, { "name": "numberOfVotes", "type": "uint256" }, { "name": "proposalHash", "type": "bytes32" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [ { "name": "proposalNumber", "type": "uint256" }, { "name": "transactionBytecode", "type": "bytes" } ], "name": "executeProposal", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "sharesTokenAddress", "outputs": [ { "name": "", "type": "address", "value": "0x4ffb0ed1a85ef0cae1dca8be76d88fce6ce0eb67" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "numProposals", "outputs": [ { "name": "", "type": "uint256", "value": "0" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [ { "name": "sharesAddress", "type": "address" }, { "name": "minimumSharesToPassAVote", "type": "uint256" }, { "name": "minutesForDebate", "type": "uint256" } ], "name": "changeVotingRules", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "debatingPeriodInMinutes", "outputs": [ { "name": "", "type": "uint256", "value": "1337" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "minimumQuorum", "outputs": [ { "name": "", "type": "uint256", "value": "10" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "owner", "outputs": [ { "name": "", "type": "address", "value": "0x038343bfaf1f35b01d91513c8472764d55474045" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [ { "name": "_from", "type": "address" }, { "name": "_value", "type": "uint256" }, { "name": "_token", "type": "address" }, { "name": "_extraData", "type": "bytes" } ], "name": "receiveApproval", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [ { "name": "beneficiary", "type": "address" }, { "name": "weiAmount", "type": "uint256" }, { "name": "jobDescription", "type": "string" }, { "name": "transactionBytecode", "type": "bytes" } ], "name": "newProposal", "outputs": [ { "name": "proposalID", "type": "uint256" } ], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [ { "name": "beneficiary", "type": "address" }, { "name": "etherAmount", "type": "uint256" }, { "name": "jobDescription", "type": "string" }, { "name": "transactionBytecode", "type": "bytes" } ], "name": "newProposalInEther", "outputs": [ { "name": "proposalID", "type": "uint256" } ], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [ { "name": "proposalNumber", "type": "uint256" }, { "name": "supportsProposal", "type": "bool" } ], "name": "vote", "outputs": [ { "name": "voteID", "type": "uint256" } ], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [ { "name": "proposalNumber", "type": "uint256" }, { "name": "beneficiary", "type": "address" }, { "name": "weiAmount", "type": "uint256" }, { "name": "transactionBytecode", "type": "bytes" } ], "name": "checkProposalCode", "outputs": [ { "name": "codeChecksOut", "type": "bool", "value": false } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [ { "name": "newOwner", "type": "address" } ], "name": "transferOwnership", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "inputs": [ { "name": "sharesAddress", "type": "address", "index": 0, "typeShort": "address", "bits": "", "displayName": "shares Address", "template": "elements_input_address" }, { "name": "minimumSharesToPassAVote", "type": "uint256", "index": 1, "typeShort": "uint", "bits": "256", "displayName": "minimum Shares To Pass A Vote", "template": "elements_input_uint" }, { "name": "minutesForDebate", "type": "uint256", "index": 2, "typeShort": "uint", "bits": "256", "displayName": "minutes For Debate", "template": "elements_input_uint" } ], "payable": true, "stateMutability": "payable", "type": "constructor" }, { "payable": true, "stateMutability": "payable", "type": "fallback" }, { "anonymous": false, "inputs": [ { "indexed": false, "name": "proposalID", "type": "uint256" }, { "indexed": false, "name": "recipient", "type": "address" }, { "indexed": false, "name": "amount", "type": "uint256" }, { "indexed": false, "name": "description", "type": "string" } ], "name": "ProposalAdded", "type": "event" }, { "anonymous": false, "inputs": [ { "indexed": false, "name": "proposalID", "type": "uint256" }, { "indexed": false, "name": "position", "type": "bool" }, { "indexed": false, "name": "voter", "type": "address" } ], "name": "Voted", "type": "event" }, { "anonymous": false, "inputs": [ { "indexed": false, "name": "proposalID", "type": "uint256" }, { "indexed": false, "name": "result", "type": "uint256" }, { "indexed": false, "name": "quorum", "type": "uint256" }, { "indexed": false, "name": "active", "type": "bool" } ], "name": "ProposalTallied", "type": "event" }, { "anonymous": false, "inputs": [ { "indexed": false, "name": "newMinimumQuorum", "type": "uint256" }, { "indexed": false, "name": "newDebatingPeriodInMinutes", "type": "uint256" }, { "indexed": false, "name": "newSharesTokenAddress", "type": "address" } ], "name": "ChangeOfRules", "type": "event" }, { "anonymous": false, "inputs": [ { "indexed": false, "name": "sender", "type": "address" }, { "indexed": false, "name": "amount", "type": "uint256" } ], "name": "receivedEther", "type": "event" }, { "anonymous": false, "inputs": [ { "indexed": false, "name": "_from", "type": "address" }, { "indexed": false, "name": "_value", "type": "uint256" }, { "indexed": false, "name": "_token", "type": "address" }, { "indexed": false, "name": "_extraData", "type": "bytes" } ], "name": "receivedTokens", "type": "event" } ]);
 var Democrasea = DemocraseaContract.at('0x775261767Bef742a7Ebaa25E919846280f36C011')
-
+var tokenTransferList = $('#tokenTransferList')
+var crowdSailFundTransfer = $('#crowdSailFundTransfer')
 //html span ids tokenAddress  democracyAddress   crowdsaleAddress
 $('#tokenAddress').html(SeaShellToken.address)
 $('#democracyAddress').html(Democrasea.address)
@@ -45,46 +46,94 @@ SeaShellToken.symbol(function(e, r){
 })
 
 //token eevent
-var shellTransferEvent = SeaShellToken.Transfer({}, 'latest')
+var shellTransferEvent = SeaShellToken.Transfer({}, {fromBlock: 0, toBlock: 'latest'})
 shellTransferEvent.watch(function(error, result){
   if(error){
     console.log(error)
   }else if(result){
-    console.log(result)
+    // console.log(result)
+    var tokenAddress = result.address;
+    var TO = result.args.to
+    var FROM = result.args.from
+    var value = result.args.value.toNumber()
+    var BlockHash = result.blockHash;
+    var blockNumber = result.blockNumber;
+    var event = result.event
+    var logIndex = result.logIndex;
+    var removed = result.removed;
+    var transactionHash = result.transactionHash
+    var transactionIndex = result.transactionIndex
+    // console.log(value)
+    var html = "<div class='transactionListing'>"
+    html += "Token Address:  <span class='address'>"+tokenAddress+"</span> <br>"
+    html +="TO: <span class='to'>"+TO+"</span><br>"
+    html+= "From: <span class='from'>"+FROM+"</span> <br>"
+    html+= "value:<span class='value'>"+value+"</span><br>"
+    html+= "BlockHash: <span class='BlockHash'>"+BlockHash+"</span> <br>"
+    html+="BlockNumber: <span class='BlockNumber'>"+blockNumber+"</span> <br>"
+    html+="logIndex: <span class='logIndex'>"+logIndex+"</span> <br>"
+    html+="removed: <span class='removed'>"+removed+"</span> <br>"
+    html+="transactionHash: <span class='transactionHash'>"+transactionHash+"</span> <br>"
+    html+="transactionIndex: <span class='transactionIndex'>"+transactionIndex+"</span> <br>" 
+    html+="</div>"
+
+    tokenTransferList.append(html)
 
   }
 })
 
+// ['tokenTransfer', 'crowdSailFundTransferEvent']
+
 
 //crowdsail events
-var crowdSailFundTransferEvent = CrowdSail.FundTransfer()
+var crowdSailFundTransferEvent = CrowdSail.FundTransfer({}, {fromBlock: 0, toBlock: 'latest'})
 crowdSailFundTransferEvent.watch(function(error, result){
   if(error){
     console.log(error)
   }else if(result){
-    console.log(result)
+    // console.log(result)
+    var crowdSaleAddress = result.address;
+    var backer = result.args.backer
+    var isContribution = result.args.isContribution
+    var amount = web3.fromWei(result.args.amount.toNumber())
+    var BlockHash = result.blockHash;
+    var blockNumber = result.blockNumber;
+    var event = result.event
+    var logIndex = result.logIndex;
+    var removed = result.removed;
+    var transactionHash = result.transactionHash
+    var transactionIndex = result.transactionIndex
+    // console.log(value)
+    var html = "<div class='transactionListing'>"
+    html += "Token Address:  <span class='address'>"+crowdSaleAddress+"</span> <br>"
+    html +="backer: <span class='to'>"+backer+"</span><br>"
+    html+= "isContribution: <span class='from'>"+isContribution+"</span> <br>"
+    html+= "amount:<span class='value'>"+amount+"</span><br>"
+    html+= "BlockHash: <span class='BlockHash'>"+BlockHash+"</span> <br>"
+    html+="BlockNumber: <span class='BlockNumber'>"+blockNumber+"</span> <br>"
+    html+="logIndex: <span class='logIndex'>"+logIndex+"</span> <br>"
+    html+="removed: <span class='removed'>"+removed+"</span> <br>"
+    html+="transactionHash: <span class='transactionHash'>"+transactionHash+"</span> <br>"
+    html+="transactionIndex: <span class='transactionIndex'>"+transactionIndex+"</span> <br>" 
+    html+="</div>"
+
+
+
+    crowdSailFundTransfer.append(html)
 
   }
 })
 
 
 //setup event watching from Democracy
-var proposalAddedEvent = Democrasea.ProposalAdded({}, 'latest')
+var proposalAddedEvent = Democrasea.ProposalAdded({}, {fromBlock: 0, toBlock: 'latest'})
 
    proposalAddedEvent.watch(function(error, result){
       if (!error){
         console.log(result)
-          if (result.blockHash != $('#insTrans').html())
-            $("#loader").hide();
-          
-          $('#insTrans').html('Block hash: '+result.blockHash)
-          $("#loader").hide();
-          $("#instructor").html(web3.toAscii(result.args.fname) + ' ' + web3.toAscii(result.args.lname) + ' (' + result.args.age + ' years old)');
-          updateCount()
-        } else {
-            $("#loader").hide();
-            console.log(error);
-        }
+      } else {
+          console.log(error);
+      }
     });
 
 // event ProposalAdded(uint proposalID, address recipient, uint amount, string description);
@@ -169,6 +218,12 @@ web3.version.getNetwork(function(e, r){
 web3.version.getEthereum(function(e, r){    //parse the returned hexedecimal
     handleBasicCallback(e, r, {web3EthereumVersion:parseInt(r, 16)})
 })
+
+//TODO
+// CrowdSail.amountRaised(function(e, r){
+// console.log(e)
+// console.log(r)
+// })
 
 
 
